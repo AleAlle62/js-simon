@@ -3,3 +3,28 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url(https://ih1.redbubble.net/image.1943002440.4467/pp,840x830-pad,1000x1000,f8f8f8.u2.jpg);
+    background-size: contain;
+}
+
+.box {
+    margin-top: 300px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    background-color: salmon;
+    gap: 50px;
+}
+
+.numeri-casuali {
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+}
+
