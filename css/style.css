@@ -28,3 +28,16 @@ body {
     color: white;
 }
 
+.displaynone {
+    display: none;
+}
+
+.risultato-finale-ok {
+    color: green;
+    font: 60px;
+}
+
+.risultato-finale-no {
+    color: red;
+    font-size: 60px;
+}

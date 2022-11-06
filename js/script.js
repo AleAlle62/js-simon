@@ -6,17 +6,19 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 passaggi:
 
 1. creazione array di numeri casuali da 1 a 100            OK!
-2. creazione di un timer di 30 secondi             OK!
-3. finito il timer l'array scompare 
+2. far sparire i numeri casuali dopo 30 secondi          OK!
+3. finito il timer l'array scompare                        OK!
 4. chiedere tramite prompt, i numeri dell'array             OK!
-5. confrontare i numeri inseriti con quelli generati 
-6. dire quanti sono uguali  
+5. confrontare i numeri inseriti con quelli generati         OK!
+6. dire quanti sono uguali              DA FINIRE!!!!!!!!!!!!!!!!!
 */
+
+
 
 // 0. DICHIARAZIONI VARIABILI GLOBALI
 let numeriHtml = document.querySelector('.numeri-casuali')
-
-
+let finalResultOk = document.querySelector ('.risultato-finale-ok')
+let finalResultNo = document.querySelector ('.risultato-finale-no')
 
 
 // 1. CREAZIONE DEI NUMERI CASUALI
@@ -36,40 +38,46 @@ for (var i = 0; i < 5 ; i++){
         i--;
     }
 }
-console.log(arrayRandom)
+console.log('numeri casuali:' , arrayRandom)
 //stampa dei numeri casuali in pagina 
 numeriHtml.innerHTML = `<div class=".numeri-casuali">${arrayRandom}</div>`
 
 
 
-// 2. CREAZIONE DEL TIMER DI 30 SECONDI 
-//creazione del tempo di partenza per il counter
-let counter = 5;
 
-// intervallo di tempo per cui cambia il contdown 
-let idInterval = setInterval(count, 1000);
+//2. FAR SPARIRE I NUMERI CASUALI
 
-// creazione funzione del counter, con all'interno la funzione che se arriva a zero fa il prompt
-function count() {
-	if (counter === 0) {
+//dopo 5 secondi i numeri spariscono
+setTimeout(sparizioneNumeri, 5000)
 
-        // COME CANCELLARE I NUMERI CASUALI?
-        
-
-
-
-
-        // stampa in console
-		console.log('scaduto il tempo per memorizzare')
-        // stampa la domanda dei numeri da chiedere con un ciclo di 5 volte
-        for (let i = 0; i < 5; i++){
-            prompt('insersci i numeri che ti ricordi')
-        }
-		clearInterval(idInterval)
-        //far sparire l'array di numeri
-
-	} else {
-		console.log(counter)
-		counter--
-	}
+function sparizioneNumeri (){
+    numeriHtml.classList.add('displaynone')
 }
+
+// far apparire il promt dopo pochi secondi che sono andati via i numeri random 
+setTimeout(chiedereNumeriUtente, 8000)
+
+//creazione array dove andranno i numeri inseriti
+let arrayPrompt = []
+
+function chiedereNumeriUtente(){
+    //funzione che ne chiama 5
+    for(let i = 0; i < 5; i++){
+        let numeriInseriti = parseInt(prompt('inserisci i numeri che ricordi')) 
+        arrayPrompt.push(numeriInseriti)
+    }
+    //stampa dei numeri messi nell'array
+    console.log('numeri inseriti:' , arrayPrompt)
+    
+//3 confrontare quanti numeri inseriti sono ugali a quelli casuali
+    var isEqual = arrayPrompt.toString() === arrayRandom.toString();
+    // controllo in console 
+    console.log(isEqual);
+    //messaggio a seconda dei valori giusti o sbagliati
+    if (isEqual === true) {
+        finalResultOk.innerHTML = `<div class=".risultato-finale-ok">${'CORRETTI '}</div>`
+    } else {
+        finalResultNo.innerHTML = `<div class=".risultato-finale-no">${'SBAGLIATI !!!'}</div>`
+    }
+}
+
