@@ -11,7 +11,7 @@ passaggi:
 4. chiedere tramite prompt, i numeri dell'array             OK!
 5. confrontare i numeri inseriti con quelli generati         OK!
 6. dire quanti sono uguali              DA FINIRE!!!!!!!!!!!!!!!!!
-*/
+*/ m
 
 
 
@@ -19,7 +19,7 @@ passaggi:
 let numeriHtml = document.querySelector('.numeri-casuali')
 let finalResultOk = document.querySelector ('.risultato-finale-ok')
 let finalResultNo = document.querySelector ('.risultato-finale-no')
-
+let titolo = document.querySelector ('h1')
 
 // 1. CREAZIONE DEI NUMERI CASUALI
 //dichiarazione array
@@ -52,10 +52,11 @@ setTimeout(sparizioneNumeri, 5000)
 
 function sparizioneNumeri (){
     numeriHtml.classList.add('displaynone')
+    titolo.classList.add('displaynone')
 }
 
 // far apparire il promt dopo pochi secondi che sono andati via i numeri random 
-setTimeout(chiedereNumeriUtente, 8000)
+setTimeout(chiedereNumeriUtente, 6000)
 
 //creazione array dove andranno i numeri inseriti
 let arrayPrompt = []
@@ -75,9 +76,9 @@ function chiedereNumeriUtente(){
     console.log(isEqual);
     //messaggio a seconda dei valori giusti o sbagliati
     if (isEqual === true) {
-        finalResultOk.innerHTML = `<div class=".risultato-finale-ok">${'CORRETTI '}</div>`
+        finalResultOk.innerHTML = `<div class=".risultato-finale-ok">${'CORRETTO hai fatto 50 punti'}</div>`
     } else {
-        finalResultNo.innerHTML = `<div class=".risultato-finale-no">${'SBAGLIATI !!!'}</div>`
+        finalResultNo.innerHTML = `<div class=".risultato-finale-no">${'SBAGLIATO !!! i numeri da inserire erano:' + arrayRandom + 'hai fatto 0 punti'}</div>`
     }
 }
 

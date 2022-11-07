@@ -34,10 +34,10 @@ body {
 
 .risultato-finale-ok {
     color: green;
-    font: 60px;
+    font: 40px;
 }
 
 .risultato-finale-no {
     color: red;
-    font-size: 60px;
+    font-size: 40px;
 }
